@@ -9,18 +9,34 @@ import java.util.List;
  */
 public interface UserService {
 
-    /** 新增用户 */
+    /**
+     * 新增用户
+     */
     boolean addUser(User user);
 
-    /** 根据 ID 删除 */
+    /**
+     * 根据 ID 删除
+     */
     boolean deleteUserById(Integer id);
 
-    /** 更新用户 */
+    /**
+     * 更新用户
+     */
     boolean updateUserById(User user);
 
-    /** 根据 ID 查询 */
+    /**
+     * 根据 ID 查询
+     */
     User getUserById(Integer id);
 
-    /** 查询全部 */
+    /**
+     * 查询全部
+     */
     List<User> list();
+
+    User selectUserByUsername(String username);
+
+    User selectUserByEmail(String email);
+
+    User selectUserByPhone(String phone);
 }

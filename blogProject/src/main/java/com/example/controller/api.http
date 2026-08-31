@@ -2,7 +2,19 @@ PUT http://localhost:8900/api/user/updateUserById/3
 Content-Type:application/json
 
 {
-  "name": "admin201",
+  "username": "USER111",
+"password": "123456",
+"age": 25,
+"email": "",
+"gender": 0,
+"phone": ""
+}
+###
+POST http://localhost:8900/api/user/addUser
+Content-Type:application/json
+
+{
+  "username": "admin1111",
 "password": "123456",
 "age": 25,
 "email": "",
@@ -12,5 +24,13 @@ Content-Type:application/json
 ###
 
 DELETE http://localhost:8900/api/user/deleteUserById/3
+Content-Type: application/json
+###
+
+GET http://localhost:8900/api/user/getUserByEmail/admin@email.com
+Content-Type: application/json
+###
+
+GET http://localhost:8900/api/user/getUserByPhone/111
 Content-Type: application/json
 ###

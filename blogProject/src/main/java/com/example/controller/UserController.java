@@ -45,16 +45,18 @@ public class UserController {
      */
     @PutMapping("/updateUserById/{id}")
     public Result updateUserById(@PathVariable Integer id, @RequestBody User user) {
-        boolean success = userService.updateUserById(user);
-        if (success) {
-            return Result.success();
-        }
-        // 这里可以再查一次，确认是不是用户不存在
+        // 1. 强制使用路径上的 id
+        user.setId(id);
+
+        // 2. 先判断用户是否存在
         User exist = userService.getUserById(id);
         if (exist == null) {
             return Result.error("用户不存在");
         }
-        return Result.error("更新失败（可能没有字段需要更新）");
+
+        // 3. 直接更新，不管影响行数
+        userService.updateUserById(user);
+        return Result.success();
     }
 
     /**
@@ -76,4 +78,32 @@ public class UserController {
         List<User> list = userService.list();
         return Result.success(list);
     }
+
+    @GetMapping("/getUserByUsername/{username}")
+    public Result selectUserByUsername(@PathVariable String username) {
+        User user = userService.selectUserByUsername(username);
+        if (user == null) {
+            return Result.noData("你寻找用户不存在！");
+        }
+        return Result.success(user);
+    }
+
+    @GetMapping("getUserByEmail/{email}")
+    public Result selectUserByEmail(@PathVariable String email) {
+        User user = userService.selectUserByEmail(email);
+        if (user == null) {
+            return Result.noData("你寻找用户不存在！");
+        }
+        return Result.success(user);
+    }
+
+    @GetMapping("getUserByPhone/{phone}")
+    public Result selectUserByPhone(@PathVariable String phone) {
+        User user = userService.selectUserByPhone(phone);
+        if (user == null) {
+            return Result.noData("你寻找用户不存在！");
+        }
+        return Result.success(user);
+    }
+
 }

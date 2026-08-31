@@ -25,4 +25,10 @@ public interface UserMapper {
 
     /** 查询全部 */
     List<User> selectAllUser();
+
+    User selectUserByUsername(@Param("username") String username);
+
+    User selectUserByEmail(@Param("email") String email);
+
+    User selectUserByPhone(@Param("phone") String phone);
 }
