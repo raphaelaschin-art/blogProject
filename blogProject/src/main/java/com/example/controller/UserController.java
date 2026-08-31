@@ -26,6 +26,17 @@ public class UserController {
      */
     @PostMapping("/addUser")
     public Result addUser(@RequestBody User user) {
+        //后端手动判空
+        if(user.getUsername()==null || user.getUsername().trim().isEmpty()){
+            return Result.error("用户名不能为空！");
+        }
+        if(user.getEmail() == null || user.getEmail().trim().isEmpty()){
+            return Result.error("邮箱不能为空！");
+        }
+        //简单邮箱格式校验
+        if(!user.getEmail().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")){
+            return Result.error("邮箱格式错误！");
+        }
         // 1. 先判断用户名和电邮是否已存在（冲突）
         if (userService.existsByUsername(user.getUsername())) {
             return Result.error("用户名已存在，请更换！");
