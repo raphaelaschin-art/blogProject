@@ -33,6 +33,9 @@ public class UserController {
         if(user.getEmail() == null || user.getEmail().trim().isEmpty()){
             return Result.error("邮箱不能为空！");
         }
+        if(user.getPhone() == null || user.getPhone().trim().isEmpty()){
+            return Result.error("电话不能为空！");
+        }
         //简单邮箱格式校验
         if(!user.getEmail().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")){
             return Result.error("邮箱格式错误！");
@@ -127,19 +130,40 @@ public class UserController {
     @GetMapping("listByGender/{gender}")
     public Result listByGender(@PathVariable Integer gender){
         List<User> list = userService.listByGender(gender);
+        if (list == null || list.isEmpty()) {
+            return Result.noData("你寻找用户不存在！");
+        }
         return Result.success(list);
     }
 
     @GetMapping("listLikeUsername/{username}")
     public Result listLikeUsername(@PathVariable String username){
          List<User> list = userService.listLikeUsername(username);
+        if (list == null || list.isEmpty()) {
+            return Result.noData("你寻找用户不存在！");
+        }
          return Result.success(list);
     }
 
     @GetMapping("listLikeEmail/{email}")
     public Result listLikeEmail(@PathVariable String email){
         List<User> list = userService.listLikeEmail(email);
+        if (list == null || list.isEmpty()) {
+            return Result.noData("你寻找用户不存在！");
+        }
         return Result.success(list);
     }
+    @GetMapping("/listLikePhone/{phone}")
+    public Result listLikePhone(@PathVariable String phone) {
+        List<User> list = userService.listLikePhone(phone);
+        if (phone == null || phone.trim().isEmpty()) {
+            return Result.noData("请输入手机号进行搜索");
+        }
+        if (list == null || list.isEmpty()) {
+            return Result.noData("你寻找用户不存在！");
+        }
+        return Result.success(list);
+    }
+
 
 }

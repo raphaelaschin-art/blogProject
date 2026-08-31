@@ -96,6 +96,15 @@
             </if>
         </where>
     </select>
+    <select id="listLikePhone" resultMap="BaseResultMap">
+        select id,username,password,age,email,gender,phone
+        from `user`
+        <where>
+            <if test="phone != null and phone != ''">
+                phone like concat('%',#{phone},'%')
+            </if>
+        </where>
+    </select>
 
 
 

@@ -44,9 +44,13 @@ public interface UserService {
 
     boolean existsByEmail(String email);
 
+    boolean existsByPhone(String phone);
+
     List<User> listByGender(Integer gender);
 
     List<User> listLikeUsername(String username);
 
     List<User> listLikeEmail(String email);
+
+    List<User> listLikePhone(String phone);
 }

@@ -14,7 +14,7 @@ POST http://localhost:8900/api/user/addUser
 Content-Type:application/json
 
 {
-  "username": "admin111111",
+  "username": "admin1111111",
 "password": "123456",
 "age": 25,
 "email": "ww@ww.ww",
@@ -39,6 +39,6 @@ GET http://localhost:8900/api/user/listByGender/0
 Content-Type: application/json
 ###
 
-GET http://localhost:8900/api/user/listLikeEmail/w
+GET http://localhost:8900/api/user/listLikePhone/
 Content-Type: application/json
 ###

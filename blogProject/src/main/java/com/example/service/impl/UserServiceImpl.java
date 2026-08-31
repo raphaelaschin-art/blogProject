@@ -67,6 +67,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public boolean existsByPhone(String phone) {
+        return selectUserByEmail(phone) != null;
+    }
+
+    @Override
     public List<User> listByGender(Integer gender) {
         return userMapper.listByGender(gender);
     }
@@ -80,4 +85,10 @@ public class UserServiceImpl implements UserService {
     public List<User> listLikeEmail(String email) {
         return userMapper.listLikeEmail(email);
     }
+    @Override
+    public List<User> listLikePhone(String phone) {
+        return userMapper.listLikePhone(phone);
+    }
+
+
 }
