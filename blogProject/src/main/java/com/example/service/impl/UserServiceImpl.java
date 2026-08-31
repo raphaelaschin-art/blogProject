@@ -65,4 +65,9 @@ public class UserServiceImpl implements UserService {
     public boolean existsByEmail(String email) {
         return selectUserByEmail(email) != null;
     }
+
+    @Override
+    public List<User> listByGender(Integer gender) {
+        return userMapper.listByGender(gender);
+    }
 }

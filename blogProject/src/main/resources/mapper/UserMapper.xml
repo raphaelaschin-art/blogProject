@@ -73,6 +73,11 @@
         FROM user
         WHERE phone = #{phone}
     </select>
+    <select id="listByGender" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM user
+        WHERE gender = #{gender}
+    </select>
 
 
 </mapper>

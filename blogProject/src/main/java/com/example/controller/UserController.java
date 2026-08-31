@@ -124,5 +124,10 @@ public class UserController {
         }
         return Result.success(user);
     }
+    @GetMapping("listByGender/{gender}")
+    public Result listByGender(@PathVariable Integer gender){
+        List<User> list = userService.listByGender(gender);
+        return Result.success(list);
+    }
 
 }

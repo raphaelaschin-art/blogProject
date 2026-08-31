@@ -41,4 +41,6 @@ public interface UserMapper {
     User selectUserByEmail(@Param("email") String email);
 
     User selectUserByPhone(@Param("phone") String phone);
+
+    List<User>listByGender(@Param("gender") Integer gender);
 }
