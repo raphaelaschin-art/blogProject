@@ -14,7 +14,7 @@ POST http://localhost:8900/api/user/addUser
 Content-Type:application/json
 
 {
-  "username": "admin1111",
+  "username": "admin111111",
 "password": "123456",
 "age": 25,
 "email": "",

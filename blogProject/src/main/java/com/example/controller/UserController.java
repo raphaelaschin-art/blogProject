@@ -26,6 +26,14 @@ public class UserController {
      */
     @PostMapping("/addUser")
     public Result addUser(@RequestBody User user) {
+        // 1. 先判断用户名和电邮是否已存在（冲突）
+        if (userService.existsByUsername(user.getUsername())) {
+            return Result.error("用户名已存在，请更换！");
+        }
+
+        if (userService.existsByEmail(user.getEmail())) {
+            return Result.error("该电邮已被使用，请更换！");
+        }
         return userService.addUser(user) ? Result.success() : Result.error("新增失败");
     }
 

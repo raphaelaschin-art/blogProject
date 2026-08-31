@@ -39,4 +39,8 @@ public interface UserService {
     User selectUserByEmail(String email);
 
     User selectUserByPhone(String phone);
+
+    boolean existsByUsername(String username);
+
+    boolean existsByEmail(String email);
 }

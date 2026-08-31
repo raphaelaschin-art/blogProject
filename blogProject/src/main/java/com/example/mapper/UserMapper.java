@@ -11,19 +11,29 @@ import java.util.List;
  */
 public interface UserMapper {
 
-    /** 新增用户，useGeneratedKeys 回填自增主键到 user.id */
+    /**
+     * 新增用户，useGeneratedKeys 回填自增主键到 user.id
+     */
     int insertUser(User user);
 
-    /** 根据 ID 删除 */
+    /**
+     * 根据 ID 删除
+     */
     int deleteUserById(@Param("id") Integer id);
 
-    /** 根据 ID 更新（动态 SQL，只更新非空字段） */
+    /**
+     * 根据 ID 更新（动态 SQL，只更新非空字段）
+     */
     int updateUser(User user);
 
-    /** 根据 ID 查询 */
+    /**
+     * 根据 ID 查询
+     */
     User selectUserById(@Param("id") Integer id);
 
-    /** 查询全部 */
+    /**
+     * 查询全部
+     */
     List<User> selectAllUser();
 
     User selectUserByUsername(@Param("username") String username);

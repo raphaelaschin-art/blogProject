@@ -55,4 +55,14 @@ public class UserServiceImpl implements UserService {
     public User selectUserByPhone(String phone) {
         return userMapper.selectUserByPhone(phone);
     }
+
+    @Override
+    public boolean existsByUsername(String username) {
+        return selectUserByUsername(username) != null;   // 直接复用
+    }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return selectUserByEmail(email) != null;
+    }
 }
