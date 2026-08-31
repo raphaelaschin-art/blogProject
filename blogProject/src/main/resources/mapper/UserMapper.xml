@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserMapper">
+
+    <!-- 结果映射：数据库列 -> 实体属性 -->
+    <resultMap id="BaseResultMap" type="com.example.entity.User">
+        <id     column="id"       property="id"/>
+        <result column="name"     property="name"/>
+        <result column="password" property="password"/>
+        <result column="age"      property="age"/>
+        <result column="email"    property="email"/>
+        <result column="gender"   property="gender"/>
+        <result column="phone"    property="phone"/>
+    </resultMap>
+
+    <!-- 公共列片段，避免重复书写 -->
+    <sql id="Base_Column_List">
+        id, name, password, age, email, gender, phone
+    </sql>
+
+    <!-- 新增：主键自增，回填到实体 id -->
+    <insert id="insertUser" parameterType="com.example.entity.User"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user (name, password, age, email, gender, phone)
+        VALUES (#{name}, #{password}, #{age}, #{email}, #{gender}, #{phone})
+    </insert>
+
+    <!-- 删除 -->
+    <delete id="deleteUserById">
+        DELETE FROM user WHERE id = #{id}
+    </delete>
+
+    <!-- 更新：动态 SQL，只更新传入的非空字段 -->
+    <update id="updateUser" parameterType="com.example.entity.User">
+        UPDATE user
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="password != null">password = #{password},</if>
+            <if test="age != null">age = #{age},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="phone != null">phone = #{phone},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 根据 ID 查询 -->
+    <select id="selectUserById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM user
+        WHERE id = #{id}
+    </select>
+
+    <!-- 查询全部，按 ID 升序 -->
+    <select id="selectAllUser" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM user
+        ORDER BY id ASC
+    </select>
+
+</mapper>

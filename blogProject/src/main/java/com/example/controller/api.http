@@ -1,0 +1,16 @@
+PUT http://localhost:8900/api/user/updateUserById/3
+Content-Type:application/json
+
+{
+  "name": "admin201",
+"password": "123456",
+"age": 25,
+"email": "",
+"gender": 0,
+"phone": ""
+}
+###
+
+DELETE http://localhost:8900/api/user/deleteUserById/3
+Content-Type: application/json
+###
