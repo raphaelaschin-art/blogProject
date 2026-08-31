@@ -43,4 +43,6 @@ public interface UserMapper {
     User selectUserByPhone(@Param("phone") String phone);
 
     List<User>listByGender(@Param("gender") Integer gender);
+
+    List<User>listLikeUsername(@Param("username") String username);
 }

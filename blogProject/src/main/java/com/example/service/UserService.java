@@ -45,4 +45,6 @@ public interface UserService {
     boolean existsByEmail(String email);
 
     List<User> listByGender(Integer gender);
+
+    List<User> listLikeUsername(String username);
 }

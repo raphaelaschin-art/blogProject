@@ -78,6 +78,16 @@
         FROM user
         WHERE gender = #{gender}
     </select>
+    <select id="listLikeUsername" resultMap="BaseResultMap">
+        select id,username,password,age,email,gender,phone
+        from `user`
+        <where>
+            <if test="username != null and username != ''">
+                username like concat('%',#{username},'%')
+            </if>
+        </where>
+    </select>
+
 
 
 </mapper>

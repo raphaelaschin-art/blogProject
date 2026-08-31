@@ -130,4 +130,10 @@ public class UserController {
         return Result.success(list);
     }
 
+    @GetMapping("listLikeUsername/{username}")
+    public Result listLikeUsername(@PathVariable String username){
+         List<User> list = userService.listLikeUsername(username);
+         return Result.success(list);
+    }
+
 }

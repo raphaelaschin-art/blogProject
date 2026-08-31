@@ -70,4 +70,9 @@ public class UserServiceImpl implements UserService {
     public List<User> listByGender(Integer gender) {
         return userMapper.listByGender(gender);
     }
+
+    @Override
+    public List<User> listLikeUsername(String username) {
+        return userMapper.listLikeUsername(username);
+    }
 }
