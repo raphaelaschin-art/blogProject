@@ -87,6 +87,15 @@
             </if>
         </where>
     </select>
+    <select id="listLikeEmail" resultMap="BaseResultMap">
+        select id,username,password,age,email,gender,phone
+        from `user`
+        <where>
+            <if test="email != null and email != ''">
+                email like concat('%',#{email},'%')
+            </if>
+        </where>
+    </select>
 
 
 

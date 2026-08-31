@@ -47,4 +47,6 @@ public interface UserService {
     List<User> listByGender(Integer gender);
 
     List<User> listLikeUsername(String username);
+
+    List<User> listLikeEmail(String email);
 }

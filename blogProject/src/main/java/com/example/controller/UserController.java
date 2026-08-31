@@ -136,4 +136,10 @@ public class UserController {
          return Result.success(list);
     }
 
+    @GetMapping("listLikeEmail/{email}")
+    public Result listLikeEmail(@PathVariable String email){
+        List<User> list = userService.listLikeEmail(email);
+        return Result.success(list);
+    }
+
 }

@@ -75,4 +75,9 @@ public class UserServiceImpl implements UserService {
     public List<User> listLikeUsername(String username) {
         return userMapper.listLikeUsername(username);
     }
+
+    @Override
+    public List<User> listLikeEmail(String email) {
+        return userMapper.listLikeEmail(email);
+    }
 }
