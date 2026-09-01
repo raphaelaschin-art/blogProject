@@ -20,8 +20,8 @@
     <!-- 新增：主键自增，回填到实体 id -->
     <insert id="insertUser" parameterType="com.example.entity.User"
             useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO user (username, password, age, email, gender, phone, role)
-        VALUES (#{username}, #{password}, #{age}, #{email}, #{gender}, #{phone}, #{role})
+        INSERT INTO user (username, password, age, email, gender, phone)
+        VALUES (#{username}, #{password}, #{age}, #{email}, #{gender}, #{phone})
     </insert>
     <!-- 删除 -->
     <delete id="deleteUserById">
@@ -105,5 +105,9 @@
         FROM user
         WHERE role = #{role}
     </select>
-
+    <select id="selectRoleById" resultType="java.lang.Integer">
+        SELECT role
+        FROM user
+        WHERE id = #{id}
+    </select>
 </mapper>

@@ -48,6 +48,9 @@ public class UserController {
         if (userService.existsByEmail(user.getEmail())) {
             return Result.error("该电邮已被使用，请更换！");
         }
+        if (userService.existsByPhone(user.getEmail())) {
+            return Result.error("该电话已被使用，请更换！");
+        }
         return userService.addUser(user) ? Result.success() : Result.error("新增失败");
     }
 
@@ -71,7 +74,7 @@ public class UserController {
         user.setId(id);
 
         // 2. 先判断用户是否存在
-        User exist = userService.getUserById(id);
+        User exist = userService.selectUserById(id);
         if (exist == null) {
             return Result.error("用户不存在");
         }
@@ -85,9 +88,9 @@ public class UserController {
      * 根据 ID 查询
      * GET /api/user/1
      */
-    @GetMapping("/getUserById/{id}")
-    public Result getUserById(@PathVariable Integer id) {
-        User user = userService.getUserById(id);
+    @GetMapping("/selectUserById/{id}")
+    public Result selectUserById(@PathVariable Integer id) {
+        User user = userService.selectUserById(id);
         return user != null ? Result.success(user) : Result.error("用户不存在");
     }
 
@@ -175,6 +178,12 @@ public class UserController {
 
         }
         return Result.success(list);
+    }
+
+    @GetMapping("selectRoleById/{id}")
+    public Result selectRoleById(@PathVariable Integer id) {
+        Integer role = userService.selectRoleById(id);
+        return role != null ? Result.success(role) : Result.noData("用户不存在！");
     }
 
 

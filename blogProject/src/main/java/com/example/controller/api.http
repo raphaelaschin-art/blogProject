@@ -27,11 +27,11 @@ DELETE http://localhost:8900/api/user/deleteUserById/3
 Content-Type: application/json
 ###
 
-GET http://localhost:8900/api/user/getUserByEmail/admin@email.com
+GET http://localhost:8900/api/user/selectUserById/9
 Content-Type: application/json
 ###
 
-GET http://localhost:8900/api/user/getUserByPhone/111
+GET http://localhost:8900/api/user/selectRoleById/1
 Content-Type: application/json
 ###
 
@@ -39,6 +39,6 @@ GET http://localhost:8900/api/user/listByGender/0
 Content-Type: application/json
 ###
 
-GET http://localhost:8900/api/user/listByRole/1
+GET http://localhost:8900/api/user/listByRole/0
 Content-Type: application/json
 ###

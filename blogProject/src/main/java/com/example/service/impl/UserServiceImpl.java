@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserById(Integer id) {
+    public User selectUserById(Integer id) {
         return userMapper.selectUserById(id);
     }
 
@@ -94,6 +94,12 @@ public class UserServiceImpl implements UserService {
     public List<User> listByRole(Integer role) {
         return userMapper.listByRole(role);
     }
+
+    @Override
+    public Integer selectRoleById (Integer id) {
+        return  userMapper.selectRoleById(id);
+    }
+
 
 
 }

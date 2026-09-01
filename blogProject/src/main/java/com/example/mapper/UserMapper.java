@@ -51,4 +51,7 @@ public interface UserMapper {
     List<User>listLikePhone(@Param("phone") String phone);
 
     List<User> listByRole(@Param("role") Integer role);
+
+    Integer selectRoleById(@Param("id") Integer id);
+    
 }

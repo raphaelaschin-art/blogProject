@@ -27,7 +27,7 @@ public interface UserService {
     /**
      * 根据 ID 查询
      */
-    User getUserById(Integer id);
+    User selectUserById(Integer id);
 
     /**
      * 查询全部
@@ -55,4 +55,8 @@ public interface UserService {
     List<User> listLikePhone(String phone);
 
     List<User> listByRole(Integer role);
+
+
+
+    Integer selectRoleById(Integer id);
 }
