@@ -53,4 +53,6 @@ public interface UserService {
     List<User> listLikeEmail(String email);
 
     List<User> listLikePhone(String phone);
+
+    List<User> listByRole(Integer role);
 }

@@ -90,5 +90,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.listLikePhone(phone);
     }
 
+    @Override
+    public List<User> listByRole(Integer role) {
+        return userMapper.listByRole(role);
+    }
+
 
 }
