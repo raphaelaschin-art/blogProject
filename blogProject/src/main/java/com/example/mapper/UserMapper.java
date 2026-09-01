@@ -4,6 +4,7 @@ import com.example.entity.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 用户 Mapper 接口
@@ -53,5 +54,7 @@ public interface UserMapper {
     List<User> listByRole(@Param("role") Integer role);
 
     Integer selectRoleById(@Param("id") Integer id);
-    
+
+    int countByRole(@Param("role") Integer role);
+
 }

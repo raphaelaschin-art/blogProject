@@ -42,3 +42,6 @@ Content-Type: application/json
 GET http://localhost:8900/api/user/listByRole/0
 Content-Type: application/json
 ###
+GET http://localhost:8900/api/user/countByRole/0
+Content-Type: application/json
+###

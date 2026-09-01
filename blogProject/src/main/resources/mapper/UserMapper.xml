@@ -110,4 +110,11 @@
         FROM user
         WHERE id = #{id}
     </select>
+    <!-- 统计各角色人数 -->
+    <!-- 统计指定角色的人数 -->
+    <select id="countByRole" resultType="int">
+        SELECT COUNT(*)
+        FROM user
+        WHERE role = #{role}
+    </select>
 </mapper>

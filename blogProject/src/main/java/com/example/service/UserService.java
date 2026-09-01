@@ -59,4 +59,6 @@ public interface UserService {
 
 
     Integer selectRoleById(Integer id);
+
+    Integer countByRole(Integer role);
 }

@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.common.Result;
 import com.example.entity.User;
+import com.example.enums.UserRole;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -184,6 +185,16 @@ public class UserController {
     public Result selectRoleById(@PathVariable Integer id) {
         Integer role = userService.selectRoleById(id);
         return role != null ? Result.success(role) : Result.noData("用户不存在！");
+    }
+
+    @GetMapping("/countByRole/{role}")
+    public Result countByRole(@PathVariable Integer role) {
+        Integer count = userService.countByRole(role);
+        if (!UserRole.isValid(role)) {
+            return Result.error("角色参数不合法！");
+        }
+        String message = "您找到的角色用户有 " + count + " 个";
+        return Result.success(message);
     }
 
 

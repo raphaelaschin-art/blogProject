@@ -100,6 +100,11 @@ public class UserServiceImpl implements UserService {
         return  userMapper.selectRoleById(id);
     }
 
+    @Override
+    public Integer countByRole(Integer role) {
+        return userMapper.countByRole(role);
+    }
+
 
 
 }
