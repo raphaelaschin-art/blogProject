@@ -14,12 +14,12 @@ POST http://localhost:8900/api/user/addUser
 Content-Type:application/json
 
 {
-  "username": "admin12121",
+  "username": "admi2n12121",
 "password": "123456",
 "age": 25,
-"email": "ww@ww.ww",
+"email": "ww@ww1.ww",
 "gender": 0,
-"phone": "111111"
+"phone": "1121111"
 }
 ###
 

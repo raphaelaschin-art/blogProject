@@ -28,6 +28,8 @@ public class User {
     /** 手机号 */
     private String phone;
 
+    private Integer role;
+
     /** 角色ID，关联 role.id */
     private Integer roleId;
     /** 账号状态 0-禁用 1-正常 */
