@@ -31,7 +31,7 @@ GET http://localhost:8900/api/user/selectUserById/9
 Content-Type: application/json
 ###
 
-GET http://localhost:8900/api/user/selectRoleById/1
+GET http://localhost:8900/api/user/selectRoleById/2
 Content-Type: application/json
 ###
 
